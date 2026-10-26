@@ -1320,7 +1320,7 @@ static void app_initialise()
 #ifdef USE_OPENGL
 		SDL_WINDOW_OPENGL | 
 #endif
-		SDL_WINDOW_RESIZABLE); // SDL_WINDOW_FULLSCREEN_DESKTOP
+		SDL_WINDOW_RESIZABLE | (getenv("YAPE_FULLSCREEN") ? SDL_WINDOW_FULLSCREEN_DESKTOP : 0));
 	if (!sdlWindow) {
 		printf("Unable to create window: %s\n", SDL_GetError());
 		return;
